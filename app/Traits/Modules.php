@@ -531,6 +531,10 @@ trait Modules
 
     public function loadSubscriptions()
     {
+        if (config('app.local_unlimited', true)) {
+            return [];
+        }
+
         $key = 'apps.subscriptions';
 
         return Cache::remember($key, Date::now()->addHours(6), function () {

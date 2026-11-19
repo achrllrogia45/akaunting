@@ -58,6 +58,10 @@ trait Plans
 
     public function getPlanLimitByType($type): object
     {
+        if (config('app.local_unlimited', true)) {
+            return $this->unlimitedLimit();
+        }
+
         if (! config('app.installed') || running_in_test()) {
             $limit = new \stdClass();
 
@@ -98,5 +102,17 @@ trait Plans
 
             return $data;
         });
+    }
+
+    protected function unlimitedLimit(): object
+    {
+        $limit = new \stdClass();
+        $limit->limit = -1;
+        $limit->used = 0;
+        $limit->action_status = true;
+        $limit->view_status = true;
+        $limit->message = "Success";
+
+        return $limit;
     }
 }

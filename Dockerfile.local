@@ -1,0 +1,11 @@
+FROM akaunting/akaunting:latest
+
+LABEL org.opencontainers.image.title="akaunting-local" \
+      org.opencontainers.image.description="Akaunting with plan/subscription enforcement disabled (local unlimited mode)" \
+      org.opencontainers.image.source="https://github.com/achrllrogia45/akaunting"
+
+# Local unlimited mode: no plan caps, no marketplace subscription gate.
+# See LOCAL-UNLIMITED.md. Set AKAUNTING_LOCAL_UNLIMITED=false to restore upstream behaviour.
+COPY config/app.php            /var/www/html/config/app.php
+COPY app/Traits/Plans.php      /var/www/html/app/Traits/Plans.php
+COPY app/Traits/Modules.php    /var/www/html/app/Traits/Modules.php

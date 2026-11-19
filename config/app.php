@@ -18,6 +18,13 @@ return [
 
     'installed' => (bool) env('APP_INSTALLED', false),
 
+    /*
+     | Self-hosted fork: when true, plan caps (users/companies/invoices) and
+     | marketplace subscriptions are not fetched nor enforced. Set
+     | AKAUNTING_LOCAL_UNLIMITED=false to restore upstream behaviour.
+     */
+    'local_unlimited' => (bool) env('AKAUNTING_LOCAL_UNLIMITED', true),
+
     'schedule_time' => env('APP_SCHEDULE_TIME', '09:00'),
 
     'eager_load' => (bool) env('APP_EAGER_LOAD', true),
