@@ -9,3 +9,6 @@ LABEL org.opencontainers.image.title="akaunting-local" \
 COPY config/app.php            /var/www/html/config/app.php
 COPY app/Traits/Plans.php      /var/www/html/app/Traits/Plans.php
 COPY app/Traits/Modules.php    /var/www/html/app/Traits/Modules.php
+
+# Extra hostnames (Cloudflare tunnel) are read from TRUSTED_HOSTS at runtime.
+COPY app/Http/Middleware/TrustHosts.php /var/www/html/app/Http/Middleware/TrustHosts.php
