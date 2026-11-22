@@ -12,7 +12,7 @@
 
     <title>{!! ! empty($metaTitle) ? $metaTitle : $title !!} - @setting('company.name')</title>
 
-    <base href="{{ config('app.url') . '/' }}">
+    <base href="{{ url('/') . '/' }}">
 
     <x-layouts.pwa.head />
 
@@ -41,7 +41,7 @@
 
     <script type="text/javascript"><!--
         var url = '{{ url("/" . company_id()) }}';
-        var app_url = '{{ config("app.url") }}';
+        var app_url = '{{ url('/') }}';
         var aka_currency = {!! !empty($currency) ? json_encode($currency) : 'false' !!};
         var all_currencies = {!! !empty($currencies) ? json_encode($currencies) : '[]' !!};
     //--></script>

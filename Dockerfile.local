@@ -12,3 +12,6 @@ COPY app/Traits/Modules.php    /var/www/html/app/Traits/Modules.php
 
 # Extra hostnames (Cloudflare tunnel) are read from TRUSTED_HOSTS at runtime.
 COPY app/Http/Middleware/TrustHosts.php /var/www/html/app/Http/Middleware/TrustHosts.php
+
+# Host-agnostic <base href> / app_url so LAN and public hostnames both work.
+COPY resources/views/components/layouts /var/www/html/resources/views/components/layouts

@@ -12,7 +12,7 @@
 
     <title>{!! $title !!} - {{ config('app.name') }}</title>
 
-    <base href="{{ config('app.url') . '/' }}">
+    <base href="{{ url('/') . '/' }}">
 
     <x-layouts.pwa.head />
 
@@ -36,7 +36,7 @@
 
     <script type="text/javascript"><!--
         var url = '{{ url("/") }}';
-        var app_url = '{{ config("app.url") }}';
+        var app_url = '{{ url('/') }}';
     //--></script>
 
     @stack('js')
